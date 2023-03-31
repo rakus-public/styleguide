@@ -2,28 +2,11 @@
 
 ## 目次
 
-1. 前提
-2. 使用するライブラリ/FW
-3. ドメイン駆動設計(DDD)について
-4. コンテキストマップと Go Module の関係性
-5. プロジェクト全体のディレクトリ/パッケージ構成の例
+1. ドメイン駆動設計(DDD)について
+2. コンテキストマップと Go Module の関係性
+3. プロジェクト全体のディレクトリ/パッケージ構成の例
 
-## 1. 前提
-
-- こちらは [株式会社ラクス](https://www.rakus.co.jp/) の SRE 課で担当するプロジェクトにおける、Go 言語での WebAPI 実装に関するノウハウをまとめた資料です。
-- 当資料に記載されたソースコードは動作を保証するものではありません。ご理解いただいた上、自己責任においてご利用ください。
-
-## 2. 使用するライブラリ/FW/Middleware
-
-当資料で使用しているライブラリ/FW は以下です。
-
-- Web フレームワーク: [gin-gonic/gin](https://github.com/gin-gonic/gin)
-- ORM: [GORM](https://gorm.io/ja_JP/docs/index.html)
-- DI ツール: [google/wire](https://github.com/google/wire)
-
-また、[Row Level Security](./row-level-security.md)ページは PostgreSQL を使用する前提で記述しています。
-
-## 3. ドメイン駆動設計(DDD)について
+## 1. ドメイン駆動設計(DDD)について
 
 DDD に関する以下の成果物を作成することを推奨します。
 
@@ -135,7 +118,7 @@ classDiagram
     申込 <-- 申込リポジトリ
 ```
 
-## 4.コンテキストマップと Go Module の関係性
+## 2.コンテキストマップと Go Module の関係性
 
 - コンテキストマップ上の「境界づけられたコンテキスト」を 1 つの Go Module として扱う
 - 各コンテキストのメソッドを呼び出すルーティング設定を持つ Go Module を、src 配下に作る
@@ -161,7 +144,7 @@ classDiagram
     └── go.sum
 ```
 
-## 5.プロジェクト全体のディレクトリ/パッケージ構成の例
+## 3.プロジェクト全体のディレクトリ/パッケージ構成の例
 
 - 全体構成の例は以下
 - 各サブモジュールで取られているレイヤードアーキテクチャの説明は[Layered Architecture](./layered-architecture.md)ページで紹介
